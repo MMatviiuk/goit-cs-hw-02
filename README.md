@@ -35,7 +35,7 @@ ________________________________________________________________________________
 cd "C:\Users\student\Desktop\Homework\WebsiteChecker"
 
 # Build the Docker image
-docker build -t website-checker .
+docker build -t website-checker 
 
 # Run the Docker container
 docker run --rm -v "C:\Users\student\Desktop\Homework\WebsiteChecker:/usr/src/app" website-checker
@@ -43,4 +43,17 @@ docker run --rm -v "C:\Users\student\Desktop\Homework\WebsiteChecker:/usr/src/ap
 # Check the contents of the 'website_status.log' file
 Get-Content "C:\Users\student\Desktop\Homework\WebsiteChecker\website_status.log"
 
- 
+## Task 2
+
+1.
+git --version
+git clone https://github.com/GoIT-Python-Web/Computer-Systems-hw02
+cd Computer-Systems-hw02
+ls
+
+2. Create Dockerfile
+
+3. Create docker-compose.yaml with PostgreSQL
+
+4. docker-compose up
+http://localhost:8000 
