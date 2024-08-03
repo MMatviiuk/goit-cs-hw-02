@@ -23,3 +23,24 @@ Clone the FastAPI application from [this repository](https://github.com/GoIT-Pyt
 - `docker-compose.yaml` configures both the application and PostgreSQL.
 - Docker Compose is used to build and start the environment.
 - Application and database are operational, verified through the UI.
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+## Task 1
+
+1. Create Dockerfile
+2. Create check_websites.sh Script
+3. Build and Run Docker Container
+# Navigate to the directory containing the Dockerfile and script
+cd "C:\Users\student\Desktop\Homework\WebsiteChecker"
+
+# Build the Docker image
+docker build -t website-checker .
+
+# Run the Docker container
+docker run --rm -v "C:\Users\student\Desktop\Homework\WebsiteChecker:/usr/src/app" website-checker
+
+# Check the contents of the 'website_status.log' file
+Get-Content "C:\Users\student\Desktop\Homework\WebsiteChecker\website_status.log"
+
+ 
