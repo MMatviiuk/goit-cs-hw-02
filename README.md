@@ -31,16 +31,16 @@ ________________________________________________________________________________
 1. Create Dockerfile
 2. Create check_websites.sh Script
 3. Build and Run Docker Container
-# Navigate to the directory containing the Dockerfile and script
+## Navigate to the directory containing the Dockerfile and script
 cd "C:\Users\student\Desktop\Homework\WebsiteChecker"
 
-# Build the Docker image
+## Build the Docker image
 docker build -t website-checker 
 
-# Run the Docker container
+## Run the Docker container
 docker run --rm -v "C:\Users\student\Desktop\Homework\WebsiteChecker:/usr/src/app" website-checker
 
-# Check the contents of the 'website_status.log' file
+## Check the contents of the 'website_status.log' file
 Get-Content "C:\Users\student\Desktop\Homework\WebsiteChecker\website_status.log"
 
 ## Task 2
