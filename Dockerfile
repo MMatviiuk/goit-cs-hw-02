@@ -1,14 +1,23 @@
-# Use the latest version of Alpine Linux as the base image
-FROM alpine:latest
+# Use the official Python 3.10 image as the base image
+FROM python:3.10
 
-# Install necessary packages: curl for HTTP requests and bash for running the script
-RUN apk --no-cache add curl bash
+# Set environment variable to define the application directory
+ENV APP_HOME /app
 
-# Copy the check_websites.sh script from the host machine into the container at /check_websites.sh
-COPY check_websites.sh /check_websites.sh
+# Set the working directory inside the container to /app
+WORKDIR $APP_HOME
 
-# Give execution permissions to the script
-RUN chmod +x /check_websites.sh
+# Copy the requirements.txt file from the host to the working directory in the container
+COPY requirements.txt .
 
-# Define the default command to run when the container starts
-ENTRYPOINT ["/check_websites.sh"]
+# Install the dependencies specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application files from the host to the working directory in the container
+COPY . .
+
+# Expose port 8000 to allow external access to the application
+EXPOSE 8000
+
+# Specify the command to run the FastAPI application using uvicorn
+ENTRYPOINT ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
